@@ -52,7 +52,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        image: test:1.1
+        image: your-image-repo-path@sha256:your-image-digest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
