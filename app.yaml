@@ -52,7 +52,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        image: us-central1-docker.pkg.dev/sp1-21-gateway/gitops/foo-app@sha256:d386de7fdf56147969a28a08f7cbb3ef37303e412a9e3d32a9fad70293263c11
+        image: test:1.1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -69,7 +69,5 @@ spec:
           timeoutSeconds: 10
         resources:
           limits:
-            cpu: "1"
+            cpu: "2"
             memory: 768Mi
-          requests:
-            cpu: "0.5"
