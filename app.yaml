@@ -52,7 +52,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        image: gcr.io/sp1-21-gateway/monolith@sha256:b45ad01173fa49a01e771e289d557450e93bd9ff9d438d069879bcb9b3fbd84c
+        image: gcr.io/sp1-21-gateway/monolith@sha256:7354788067c8582d01fa5ca4d7dbc099e157eb52416ae8167b23f05328872c81
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
