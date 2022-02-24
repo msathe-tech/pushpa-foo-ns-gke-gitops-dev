@@ -52,7 +52,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        image: gcr.io/sp1-21-gateway/monolith@sha256:7354788067c8582d01fa5ca4d7dbc099e157eb52416ae8167b23f05328872c81
+        image: us-central1-docker.pkg.dev/sp1-21-gateway/gitops/foo-app@sha256:62d8291888db432cb3873986b0f0d8d444971d779b42ae7dc994047c299cca32
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
