@@ -1,1 +1,1 @@
-# foo-env-ns-repo
+# foo-env-gke-ns-repo
