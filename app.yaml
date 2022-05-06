@@ -5,10 +5,8 @@ metadata:
 spec:
   ports:
   - port: 8080
-    targetPort: 8080
   selector:
     app: foo
-  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -17,7 +15,7 @@ metadata:
     app: foo
   name: foo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: foo
@@ -52,7 +50,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        image: gcr.io/sp1-21-gateway/monolith@sha256:7354788067c8582d01fa5ca4d7dbc099e157eb52416ae8167b23f05328872c81
+        image: us-central1-docker.pkg.dev/sp1-21-gateway/gitops-demo/foo@sha256:01a71ae95975b90cd27cd1f679258576be0390f0295e9e6d9ea02cd9ff09b3f6
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -66,7 +64,30 @@ spec:
             path: /actuator/health/readiness
             port: 8080
           initialDelaySeconds: 2
-          timeoutSeconds: 10
+          timeoutSeconds: 11
         resources:
           limits:
             memory: 768Mi
+      imagePullSecrets:
+      - name: artifact-registry
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: foo-ingress
+spec:
+  defaultBackend:
+    service:
+      name: foo-service
+      port:
+        number: 8080
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: foo-service
+            port:
+              number: 8080
+        path: /foo
+        pathType: Prefix
