@@ -1,1 +1,1 @@
-Update image with digest: us-central1-docker.pkg.dev/demo2-july8/pushpa/foo@sha256:eef7bee4591e651fcf29bcfad905b6a409a99f056d26e2f9117693f0bcfa927a 
+Update image with digest: us-central1-docker.pkg.dev/demo2-july8/pushpa/foo@sha256:b24ec9aec912cae81c7974ac8f9f2899042733cbac3645cc41c9fe5f7d5683ec 
